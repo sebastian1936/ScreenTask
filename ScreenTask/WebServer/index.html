@@ -298,15 +298,24 @@
 
         function requestFullScreen(element) {
             // Supports most browsers and their versions.
-            var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+            // 注意：标准 API 是 requestFullscreen (小写 s)，不是 requestFullScreen
+            var requestMethod = element.requestFullscreen ||
+                                element.webkitRequestFullscreen ||
+                                element.mozRequestFullscreen ||
+                                element.msRequestFullscreen;
 
-            if (requestMethod) { // Native full screen.
+            if (requestMethod) {
                 requestMethod.call(element);
+            } else if (typeof document.documentElement.webkitRequestFullscreen === 'function') {
+                // iOS Safari / 旧版 WebKit fallback：对整个文档请求全屏
+                document.documentElement.webkitRequestFullscreen();
             } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
                 var wscript = new ActiveXObject("WScript.Shell");
                 if (wscript !== null) {
                     wscript.SendKeys("{F11}");
                 }
+            } else {
+                alert('您的浏览器不支持全屏功能。\n请尝试：\n- Android: 点击浏览器菜单中的全屏\n- iPad/iOS: 点击分享按钮 -> "添加到主屏幕"');
             }
         }
 

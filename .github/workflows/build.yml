@@ -1,0 +1,30 @@
+name: Build ScreenTask
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build Solution (Release)
+      run: msbuild ScreenTask.sln /p:Configuration=Release /p:Platform="Any CPU" /verbosity:minimal /restore
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ScreenTask-v${{ github.run_number }}
+        path: |
+          ScreenTask/bin/Release/
+          !ScreenTask/bin/Release/*.pdb
+        retention-days: 30
