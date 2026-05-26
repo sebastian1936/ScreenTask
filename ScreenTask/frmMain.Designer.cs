@@ -83,7 +83,7 @@
             this.gbOptions.ForeColor = System.Drawing.Color.White;
             this.gbOptions.Location = new System.Drawing.Point(12, 71);
             this.gbOptions.Name = "gbOptions";
-            this.gbOptions.Size = new System.Drawing.Size(347, 68);
+            this.gbOptions.Size = new System.Drawing.Size(347, 80);
             this.gbOptions.TabIndex = 0;
             this.gbOptions.TabStop = false;
             this.gbOptions.Text = "Network Options";
@@ -161,7 +161,7 @@
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(11, 445);
+            this.txtLog.Location = new System.Drawing.Point(11, 490);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
@@ -323,7 +323,7 @@
             // 
             this.lblMe.BackColor = System.Drawing.Color.Transparent;
             this.lblMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblMe.Location = new System.Drawing.Point(11, 501);
+            this.lblMe.Location = new System.Drawing.Point(11, 546);
             this.lblMe.Name = "lblMe";
             this.lblMe.Size = new System.Drawing.Size(350, 23);
             this.lblMe.TabIndex = 32;
@@ -456,9 +456,9 @@
             this.groupBox1.Controls.Add(this.qualitySlider);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 145);
+            this.groupBox1.Location = new System.Drawing.Point(12, 157);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(347, 108);
+            this.groupBox1.Size = new System.Drawing.Size(347, 120);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Display Options";
@@ -472,9 +472,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(12, 259);
+            this.groupBox2.Location = new System.Drawing.Point(12, 283);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 73);
+            this.groupBox2.Size = new System.Drawing.Size(347, 85);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Privacy Options";
@@ -487,19 +487,19 @@
             this.groupBox3.Controls.Add(this.cbMiniStart);
             this.groupBox3.Controls.Add(this.btnStartServer);
             this.groupBox3.Controls.Add(this.cbAutoStart);
-            this.groupBox3.Location = new System.Drawing.Point(12, 338);
+            this.groupBox3.Location = new System.Drawing.Point(12, 374);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(347, 98);
+            this.groupBox3.Size = new System.Drawing.Size(347, 110);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(373, 523);
+            this.ClientSize = new System.Drawing.Size(373, 575);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
