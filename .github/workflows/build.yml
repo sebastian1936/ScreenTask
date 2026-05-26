@@ -1,13 +1,14 @@
-name: Build ScreenTask
+name: Build & Release ScreenTask
 
 on:
   push:
-    branches: [ master, main ]
-  pull_request:
-    branches: [ master, main ]
+    tags:
+      - 'v*'
+
+  workflow_dispatch:
 
 jobs:
-  build:
+  build-and-release:
     runs-on: windows-latest
 
     steps:
@@ -20,11 +21,27 @@ jobs:
     - name: Build Solution (Release)
       run: msbuild ScreenTask.sln /p:Configuration=Release /p:Platform="Any CPU" /verbosity:minimal /restore
 
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
+    - name: Package as ZIP
+      run: Compress-Archive -Path "ScreenTask/bin/Release/*" -DestinationPath "ScreenTask-v${{ github.ref_name }}.zip" -Force
+
+    - name: Create Release and Upload
+      uses: softprops/action-gh-release@v2
       with:
-        name: ScreenTask-v${{ github.run_number }}
-        path: |
-          ScreenTask/bin/Release/
-          !ScreenTask/bin/Release/*.pdb
-        retention-days: 30
+        name: ScreenTask ${{ github.ref_name }}
+        body: |
+          ## ScreenTask ${{ github.ref_name }}
+          - Share your screen across local devices without internet.
+          - WebUI: No additional software needed (only web browser).
+          - Basic authentication support for private sessions.
+          - Multi-screen support.
+
+          ### How to use:
+          1. Download and unzip
+          2. Run `ScreenTask.exe`
+          3. Click **Start Server**
+          4. Open the URL on any device's browser
+        files: ScreenTask-v${{ github.ref_name }}.zip
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
