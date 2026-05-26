@@ -2,9 +2,7 @@ name: Build & Release ScreenTask
 
 on:
   push:
-    tags:
-      - 'v*'
-
+    branches: [ master, main ]
   workflow_dispatch:
 
 jobs:
@@ -22,16 +20,25 @@ jobs:
       run: msbuild ScreenTask.sln /p:Configuration=Release /p:Platform="Any CPU" /verbosity:minimal /restore
 
     - name: Package as ZIP
-      run: Compress-Archive -Path "ScreenTask/bin/Release/*" -DestinationPath "ScreenTask-v${{ github.ref_name }}.zip" -Force
+      run: |
+        $ver = "dev-$($env:GITHUB_RUN_NUMBER)"
+        Compress-Archive -Path "ScreenTask/bin/Release/*" -DestinationPath "ScreenTask-$ver.zip" -Force
+        echo "RELEASE_VER=$ver" >> $env:GITHUB_ENV
 
-    - name: Create Release and Upload
+    - name: Update Release (overwrite)
       uses: softprops/action-gh-release@v2
       with:
-        name: ScreenTask ${{ github.ref_name }}
+        tag_name: latest
+        name: ScreenTask Latest Build (#${{ github.run_number }})
         body: |
-          ## ScreenTask ${{ github.ref_name }}
+          ## ScreenTask - 自动构建 #${{ github.run_number }}
+          **提交**: `${{ github.sha }}`
+          **分支**: ${{ github.ref_name }}
+          **构建时间**: ${{ github.event.head_commit.timestamp }}
+
+          ---
           - Share your screen across local devices without internet.
-          - WebUI: No additional software needed (only web browser).
+          - WebUI: No additional software needed.
           - Basic authentication support for private sessions.
           - Multi-screen support.
 
@@ -40,7 +47,7 @@ jobs:
           2. Run `ScreenTask.exe`
           3. Click **Start Server**
           4. Open the URL on any device's browser
-        files: ScreenTask-v${{ github.ref_name }}.zip
+        files: ScreenTask-${{ env.RELEASE_VER }}.zip
         draft: false
         prerelease: false
       env:
