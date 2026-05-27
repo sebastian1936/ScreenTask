@@ -83,7 +83,7 @@
             this.gbOptions.ForeColor = System.Drawing.Color.White;
             this.gbOptions.Location = new System.Drawing.Point(12, 71);
             this.gbOptions.Name = "gbOptions";
-            this.gbOptions.Size = new System.Drawing.Size(385, 78);
+            this.gbOptions.Size = new System.Drawing.Size(424, 78);
             this.gbOptions.TabIndex = 0;
             this.gbOptions.TabStop = false;
             this.gbOptions.Text = "网络设置";
@@ -121,7 +121,7 @@
             this.comboIPs.FormattingEnabled = true;
             this.comboIPs.Location = new System.Drawing.Point(35, 15);
             this.comboIPs.Name = "comboIPs";
-            this.comboIPs.Size = new System.Drawing.Size(220, 21);
+            this.comboIPs.Size = new System.Drawing.Size(245, 21);
             this.comboIPs.TabIndex = 27;
             // 
             // label2
@@ -130,7 +130,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(252, 18);
+            this.label2.Location = new System.Drawing.Point(278, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 16;
@@ -139,7 +139,7 @@
             // numPort
             // 
             this.numPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numPort.Location = new System.Drawing.Point(290, 16);
+            this.numPort.Location = new System.Drawing.Point(316, 16);
             this.numPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -166,7 +166,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(388, 48);
+            this.txtLog.Size = new System.Drawing.Size(427, 48);
             this.txtLog.TabIndex = 3;
             this.txtLog.TextChanged += new System.EventHandler(this.txtLog_TextChanged);
             // 
@@ -176,9 +176,9 @@
             this.cbCaptureMouse.BackColor = System.Drawing.Color.Transparent;
             this.cbCaptureMouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCaptureMouse.ForeColor = System.Drawing.Color.White;
-            this.cbCaptureMouse.Location = new System.Drawing.Point(196, 65);
+            this.cbCaptureMouse.Location = new System.Drawing.Point(218, 65);
             this.cbCaptureMouse.Name = "cbCaptureMouse";
-            this.cbCaptureMouse.Size = new System.Drawing.Size(145, 17);
+            this.cbCaptureMouse.Size = new System.Drawing.Size(180, 17);
             this.cbCaptureMouse.TabIndex = 26;
             this.cbCaptureMouse.Text = "显示鼠标指针";
             this.cbCaptureMouse.UseVisualStyleBackColor = false;
@@ -192,7 +192,7 @@
             this.btnStartServer.ForeColor = System.Drawing.Color.White;
             this.btnStartServer.Location = new System.Drawing.Point(47, 42);
             this.btnStartServer.Name = "btnStartServer";
-            this.btnStartServer.Size = new System.Drawing.Size(240, 30);
+            this.btnStartServer.Size = new System.Drawing.Size(275, 30);
             this.btnStartServer.TabIndex = 23;
             this.btnStartServer.Tag = "start";
             this.btnStartServer.Text = "启动服务器";
@@ -206,7 +206,7 @@
             this.txtPassword.Location = new System.Drawing.Point(231, 36);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(130, 20);
+            this.txtPassword.Size = new System.Drawing.Size(145, 20);
             this.txtPassword.TabIndex = 22;
             this.txtPassword.Text = "task";
             // 
@@ -263,7 +263,7 @@
             this.txtURL.Location = new System.Drawing.Point(47, 16);
             this.txtURL.Name = "txtURL";
             this.txtURL.ReadOnly = true;
-            this.txtURL.Size = new System.Drawing.Size(255, 20);
+            this.txtURL.Size = new System.Drawing.Size(290, 20);
             this.txtURL.TabIndex = 17;
             this.txtURL.Text = "启动服务器后将在此显示访问地址";
             // 
@@ -284,7 +284,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(302, 26);
+            this.label6.Location = new System.Drawing.Point(335, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 31;
@@ -298,7 +298,7 @@
             0,
             0,
             0});
-            this.numShotEvery.Location = new System.Drawing.Point(238, 24);
+            this.numShotEvery.Location = new System.Drawing.Point(265, 24);
             this.numShotEvery.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -325,7 +325,7 @@
             this.lblMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblMe.Location = new System.Drawing.Point(11, 523);
             this.lblMe.Name = "lblMe";
-            this.lblMe.Size = new System.Drawing.Size(388, 23);
+            this.lblMe.Size = new System.Drawing.Size(427, 23);
             this.lblMe.TabIndex = 32;
             this.lblMe.Text = "© Eslam Hamouda 2014 - 2022 - screentask.me  |  屏幕共享工具";
             this.lblMe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -338,7 +338,7 @@
             this.comboScreens.FormattingEnabled = true;
             this.comboScreens.Location = new System.Drawing.Point(57, 23);
             this.comboScreens.Name = "comboScreens";
-            this.comboScreens.Size = new System.Drawing.Size(145, 21);
+            this.comboScreens.Size = new System.Drawing.Size(165, 21);
             this.comboScreens.TabIndex = 35;
             // 
             // label7
@@ -358,7 +358,7 @@
             this.pictureBox1.Image = global::ScreenTask.Properties.Resources.screentask_logo;
             this.pictureBox1.Location = new System.Drawing.Point(11, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(388, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(427, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
@@ -367,7 +367,7 @@
             // 
             this.btnLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunch.ForeColor = System.Drawing.Color.White;
-            this.btnLaunch.Location = new System.Drawing.Point(310, 13);
+            this.btnLaunch.Location = new System.Drawing.Point(345, 13);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(65, 25);
             this.btnLaunch.TabIndex = 38;
@@ -381,7 +381,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(193, 26);
+            this.label8.Location = new System.Drawing.Point(218, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 39;
@@ -425,7 +425,7 @@
             this.qualitySlider.Maximum = 100;
             this.qualitySlider.Minimum = 1;
             this.qualitySlider.Name = "qualitySlider";
-            this.qualitySlider.Size = new System.Drawing.Size(145, 45);
+            this.qualitySlider.Size = new System.Drawing.Size(165, 45);
             this.qualitySlider.SmallChange = 10;
             this.qualitySlider.TabIndex = 42;
             this.qualitySlider.TickFrequency = 25;
@@ -458,7 +458,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 155);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(385, 115);
+            this.groupBox1.Size = new System.Drawing.Size(424, 115);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "显示设置";
@@ -474,7 +474,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(12, 273);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 82);
+            this.groupBox2.Size = new System.Drawing.Size(424, 82);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "隐私设置";
@@ -489,7 +489,7 @@
             this.groupBox3.Controls.Add(this.cbAutoStart);
             this.groupBox3.Location = new System.Drawing.Point(12, 361);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(385, 102);
+            this.groupBox3.Size = new System.Drawing.Size(424, 102);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
@@ -499,7 +499,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(411, 558);
+            this.ClientSize = new System.Drawing.Size(450, 558);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

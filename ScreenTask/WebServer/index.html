@@ -108,6 +108,7 @@
         }
 
         /* Fullscreen mode - image covers entire viewport regardless of aspect ratio */
+        #Viewer.fullscreen-mode,
         #Viewer:fullscreen,
         #Viewer:-webkit-full-screen,
         #Viewer:-moz-full-screen,
@@ -119,8 +120,13 @@
             width: 100vw !important;
             height: 100vh !important;
             overflow: hidden;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            z-index: 99999 !important;
         }
 
+        #Viewer.fullscreen-mode img#imgPrev,
         #Viewer:fullscreen img#imgPrev,
         #Viewer:-webkit-full-screen img#imgPrev,
         #Viewer:-moz-full-screen img#imgPrev,
@@ -128,10 +134,13 @@
             max-width: none !important;
             width: 100vw !important;
             height: 100vh !important;
-            object-fit: cover !important;
+            object-fit: contain !important;
+            min-width: 100vw !important;
+            min-height: 100vh !important;
         }
 
         /* Hide controls in fullscreen, show on hover */
+        #Viewer.fullscreen-mode .well,
         #Viewer:fullscreen .well,
         #Viewer:-webkit-full-screen .well,
         #Viewer:-moz-full-screen .well,
@@ -150,6 +159,7 @@
             padding: 8px !important;
         }
 
+        #Viewer.fullscreen-mode:hover .well,
         #Viewer:fullscreen:hover .well,
         #Viewer:-webkit-full-screen:hover .well,
         #Viewer:-moz-full-screen:hover .well,
@@ -375,6 +385,29 @@
             var viewer = document.getElementById('Viewer');
             requestFullScreen(viewer);
         };
+
+        // 监听全屏变化事件，用JS切换class确保兼容性
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+        function handleFullscreenChange() {
+            var viewer = document.getElementById('Viewer');
+            var isFs = !!(document.fullscreenElement || document.webkitFullscreenElement ||
+                          document.mozFullScreenElement || document.msFullscreenElement);
+            if (isFs) {
+                viewer.classList.add('fullscreen-mode');
+                // 强制图片重新计算尺寸
+                var img = document.getElementById('imgPrev');
+                img.style.display = 'none';
+                // 强制浏览器重绘
+                void img.offsetHeight;
+                img.style.display = '';
+            } else {
+                viewer.classList.remove('fullscreen-mode');
+            }
+        }
 
 
 
