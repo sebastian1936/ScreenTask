@@ -21,6 +21,10 @@
             padding-bottom: 5px;
         }
 
+        #imgPrev {
+            max-width: 100%;
+        }
+
         /* Main marketing message and sign up button */
         .jumbotron {
             text-align: center;
@@ -215,7 +219,7 @@
                 <h3>服务器已停止</h3>
                 <h3><a href="https://screentask.me" target="_blank">screentask.me</a></h3>
             </div>
-            <img id="imgPrev" src="ScreenTask.jpg" class="img-responsive" style="max-width: 100%;" alt="实时屏幕画面" />
+            <img id="imgPrev" src="ScreenTask.jpg" class="img-responsive" alt="实时屏幕画面" />
             <br />
             <div class="well text-center mt-2">
 
@@ -356,58 +360,52 @@
             msgAbout.className = "alert alert-info alert-dismissable d-none mt-2";
         };
 
-        function requestFullScreen(element) {
-            // Supports most browsers and their versions.
-            // 注意：标准 API 是 requestFullscreen (小写 s)，不是 requestFullScreen
-            var requestMethod = element.requestFullscreen ||
-                                element.webkitRequestFullscreen ||
-                                element.mozRequestFullscreen ||
-                                element.msRequestFullscreen;
-
-            if (requestMethod) {
-                requestMethod.call(element);
-            } else if (typeof document.documentElement.webkitRequestFullscreen === 'function') {
-                // iOS Safari / 旧版 WebKit fallback：对整个文档请求全屏
-                document.documentElement.webkitRequestFullscreen();
-            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-                var wscript = new ActiveXObject("WScript.Shell");
-                if (wscript !== null) {
-                    wscript.SendKeys("{F11}");
-                }
-            } else {
-                alert('您的浏览器不支持全屏功能。\n请尝试：\n- Android: 点击浏览器菜单中的全屏\n- iPad/iOS: 点击分享按钮 -> "添加到主屏幕"');
-            }
-        }
 
         var btnFullscreen = document.getElementById('btnFullscreen');
-        btnFullscreen.onclick = function () {
+        var imgPrev = document.getElementById('imgPrev');
+        var viewerDiv = document.getElementById('Viewer');
+        var savedImgStyles = {};
 
-            var viewer = document.getElementById('Viewer');
-            requestFullScreen(viewer);
+        btnFullscreen.onclick = function () {
+            var el = document.documentElement;
+            if (el.requestFullscreen) {
+                el.requestFullscreen();
+            } else if (el.webkitRequestFullscreen) {
+                el.webkitRequestFullscreen();
+            } else if (el.mozRequestFullScreen) {
+                el.mozRequestFullScreen();
+            } else if (el.msRequestFullscreen) {
+                el.msRequestFullscreen();
+            } else {
+                alert('您的浏览器不支持全屏功能。');
+            }
         };
 
-        // 监听全屏变化事件，用JS切换class确保兼容性
-        document.addEventListener('fullscreenchange', handleFullscreenChange);
-        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+        // 监听全屏变化
+        document.addEventListener('fullscreenchange', onFsChange);
+        document.addEventListener('webkitfullscreenchange', onFsChange);
+        document.addEventListener('mozfullscreenchange', onFsChange);
+        document.addEventListener('MSFullscreenChange', onFsChange);
 
-        function handleFullscreenChange() {
-            var viewer = document.getElementById('Viewer');
+        function onFsChange() {
             var isFs = !!(document.fullscreenElement || document.webkitFullscreenElement ||
                           document.mozFullScreenElement || document.msFullscreenElement);
             if (isFs) {
-                viewer.classList.add('fullscreen-mode');
-                // 强制图片重新计算尺寸
-                var img = document.getElementById('imgPrev');
-                img.style.display = 'none';
-                // 强制浏览器重绘
-                void img.offsetHeight;
-                img.style.display = '';
+                // 保存原始样式
+                savedImgStyles.cssText = imgPrev.style.cssText;
+                // 全屏：图片填满整个视口，contain保持比例不裁切
+                imgPrev.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; object-fit:contain; background:#000; z-index:99998; max-width:none;';
+                viewerDiv.classList.add('fullscreen-mode');
             } else {
-                viewer.classList.remove('fullscreen-mode');
+                // 恢复原始样式
+                imgPrev.style.cssText = savedImgStyles.cssText || '';
+                viewerDiv.classList.remove('fullscreen-mode');
             }
         }
+
+
+
+
 
 
 
