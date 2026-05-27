@@ -42,7 +42,7 @@ namespace ScreenTask
                 comboScreens.Items.Add(screen.DeviceName.Replace("\\", "").Replace(".", ""));
             }
             comboScreens.SelectedIndex = 0;
-            this.Text = $"Screen Task v{currentVersion.Major}.{currentVersion.Minor}";
+            this.Text = $"屏幕共享 v{currentVersion.Major}.{currentVersion.Minor}";
         }
 
         private async void btnStartServer_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace ScreenTask
             if (btnStartServer.Tag.ToString() != "start")
             {
                 btnStartServer.Tag = "start";
-                btnStartServer.Text = "Start Server";
+                btnStartServer.Text = "启动服务器";
                 isWorking = false;
                 if (serv.IsListening)
                 {
@@ -59,7 +59,7 @@ namespace ScreenTask
                     serv.Close();
                 }
                 Log("Server Stopped.");
-                appNotify.ShowBalloonTip(1_000, "ScreenTask", "Server Stopped.", ToolTipIcon.Info);
+                appNotify.ShowBalloonTip(1_000, "ScreenTask", "服务器已停止。", ToolTipIcon.Info);
 
                 return;
             }
@@ -70,11 +70,11 @@ namespace ScreenTask
                 serv = new HttpListener();
                 serv.IgnoreWriteExceptions = true;
                 isWorking = true;
-                Log("Starting Server, Please Wait...");
+                Log("正在启动服务器，请稍候...");
                 await AddFirewallRule((int)numPort.Value);
                 _ = Task.Factory.StartNew(() => CaptureScreenEvery((int)numShotEvery.Value), TaskCreationOptions.LongRunning);
                 btnStartServer.Tag = "stop";
-                btnStartServer.Text = "Stop Server";
+                btnStartServer.Text = "停止服务器";
                 await StartServer();
 
             }
@@ -88,20 +88,20 @@ namespace ScreenTask
                 if (httpEx.ErrorCode == 32) // Port Already Used
                 {
                     btnStartServer.Tag = "start";
-                    btnStartServer.Text = "Start Server";
+                    btnStartServer.Text = "启动服务器";
                     isWorking = false;
-                    Log($"This port {numPort.Value} is already used");
-                    var msgResult = MessageBox.Show($"This port {numPort.Value} is already used, Do you want to use another random one ?", "Port Already Used !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    Log($"端口 {numPort.Value} 已被占用");
+                    var msgResult = MessageBox.Show($"端口 {numPort.Value} 已被占用，是否使用其他随机端口？", "端口已被占用！", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (msgResult == DialogResult.Yes)
                     {
                         numPort.Value += DateTime.Now.Second;
-                        Log($"New port is {numPort.Value}");
+                        Log($"新端口为 {numPort.Value}");
                         btnStartServer_Click(sender, e);
                     }
                     else
                     {
 
-                        Log("Port Change Request Declined");
+                        Log("用户拒绝更换端口");
                     }
 
                 }
@@ -113,7 +113,7 @@ namespace ScreenTask
             }
             catch (Exception ex)
             {
-                Log("Error! : " + ex.ToString());
+                Log("错误！：" + ex.ToString());
             }
         }
         private async Task StartServer()
@@ -128,11 +128,11 @@ namespace ScreenTask
             //serv.Prefixes.Add("http://*:" + numPort.Value.ToString() + "/"); // Uncomment this to Allow Public IP Over Internet. [Commented for Security Reasons.]
             serv.Prefixes.Add(url + "/");
             serv.Start();
-            Log("Server Started Successfully!");
-            appNotify.ShowBalloonTip(1_000, "ScreenTask", $"Server Started Successfully!\r\n{url}", ToolTipIcon.Info);
+            Log("服务器启动成功！");
+            appNotify.ShowBalloonTip(1_000, "ScreenTask", $"服务器启动成功！\r\n{url}", ToolTipIcon.Info);
 
-            Log("Network URL : " + url);
-            Log("Localhost URL : " + "http://localhost:" + numPort.Value.ToString() + "/");
+            Log("网络地址：" + url);
+            Log("本地地址：" + "http://localhost:" + numPort.Value.ToString() + "/");
             while (isWorking)
             {
                 var ctx = await serv.GetContextAsync();
@@ -358,7 +358,7 @@ namespace ScreenTask
                     cmd = RunCMD($"netsh advfirewall firewall show rule \"{rulename}\"");
                     if (cmd.Contains(rulename))
                     {
-                        Log("Screen Task Rule added to your firewall");
+                        Log("已添加防火墙规则");
                     }
                 }
                 else
@@ -375,7 +375,7 @@ namespace ScreenTask
                     cmd = RunCMD($"netsh advfirewall firewall show rule \"{rulename}\"");
                     if (cmd.Contains(rulename))
                     {
-                        Log("Screen Task Rule updated to your firewall");
+                        Log("已更新防火墙规则");
                     }
                 }
             });
@@ -494,7 +494,7 @@ namespace ScreenTask
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load local appsettings.xml file.\r\n{ex.ToString()}", "ScreenTask", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"无法加载本地配置文件 appsettings.xml。\r\n{ex.ToString()}", "屏幕共享", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (_currentSettings.IsStartMinimizedEnabled)
@@ -527,7 +527,7 @@ namespace ScreenTask
                         {
                             this.Invoke((MethodInvoker)delegate
                             {
-                                var msgResult = MessageBox.Show(this, $"There is a new update available for download.\nCurrent Version: {currentVersion}\nLatest Version: {newVersion}\nDo you want to download it now ?", "New Version Released!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                var msgResult = MessageBox.Show(this, $"有新版本可供下载。\n当前版本：{currentVersion}\n最新版本：{newVersion}\n是否立即下载？", "发现新版本！", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                                 if (msgResult == DialogResult.Yes)
                                 {
                                     Process.Start(Constants.WebsiteUrl);
@@ -580,7 +580,7 @@ namespace ScreenTask
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Cannot save the settings file next to the executable file.\r\n{ex.ToString()}", "ScreenTask", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"无法在程序目录保存设置文件。\r\n{ex.ToString()}", "屏幕共享", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -604,7 +604,7 @@ namespace ScreenTask
             {
                 this.ShowInTaskbar = false;
                 appNotify.Visible = true;
-                appNotify.ShowBalloonTip(1_000, "ScreenTask", "Running in the background", ToolTipIcon.Info);
+                appNotify.ShowBalloonTip(1_000, "ScreenTask", "正在后台运行", ToolTipIcon.Info);
             }
         }
 

@@ -86,7 +86,7 @@
             this.gbOptions.Size = new System.Drawing.Size(385, 78);
             this.gbOptions.TabIndex = 0;
             this.gbOptions.TabStop = false;
-            this.gbOptions.Text = "Network Options";
+            this.gbOptions.Text = "网络设置";
             // 
             // cbAllowPublicAccess
             // 
@@ -98,7 +98,7 @@
             this.cbAllowPublicAccess.Name = "cbAllowPublicAccess";
             this.cbAllowPublicAccess.Size = new System.Drawing.Size(119, 17);
             this.cbAllowPublicAccess.TabIndex = 44;
-            this.cbAllowPublicAccess.Text = "Allow public access";
+            this.cbAllowPublicAccess.Text = "允许公开访问";
             this.cbAllowPublicAccess.UseVisualStyleBackColor = false;
             this.cbAllowPublicAccess.CheckedChanged += new System.EventHandler(this.cbAllowPublicAccess_CheckedChanged);
             // 
@@ -112,7 +112,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(23, 13);
             this.label5.TabIndex = 28;
-            this.label5.Text = "IP :";
+            this.label5.Text = "IP 地址：";
             // 
             // comboIPs
             // 
@@ -134,7 +134,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Port :";
+            this.label2.Text = "端口：";
             // 
             // numPort
             // 
@@ -180,7 +180,7 @@
             this.cbCaptureMouse.Name = "cbCaptureMouse";
             this.cbCaptureMouse.Size = new System.Drawing.Size(145, 17);
             this.cbCaptureMouse.TabIndex = 26;
-            this.cbCaptureMouse.Text = "Show Mouse Pointer";
+            this.cbCaptureMouse.Text = "显示鼠标指针";
             this.cbCaptureMouse.UseVisualStyleBackColor = false;
             this.cbCaptureMouse.CheckedChanged += new System.EventHandler(this.cbCaptureMouse_CheckedChanged);
             // 
@@ -195,7 +195,7 @@
             this.btnStartServer.Size = new System.Drawing.Size(240, 30);
             this.btnStartServer.TabIndex = 23;
             this.btnStartServer.Tag = "start";
-            this.btnStartServer.Text = "Start Server";
+            this.btnStartServer.Text = "启动服务器";
             this.btnStartServer.UseVisualStyleBackColor = false;
             this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
@@ -230,7 +230,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Password : ";
+            this.label4.Text = "密码：";
             // 
             // label3
             // 
@@ -242,7 +242,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 19;
-            this.label3.Text = "User : ";
+            this.label3.Text = "用户名：";
             // 
             // cbPrivate
             // 
@@ -254,7 +254,7 @@
             this.cbPrivate.Name = "cbPrivate";
             this.cbPrivate.Size = new System.Drawing.Size(89, 17);
             this.cbPrivate.TabIndex = 18;
-            this.cbPrivate.Text = "Private Task ";
+            this.cbPrivate.Text = "私有模式";
             this.cbPrivate.UseVisualStyleBackColor = false;
             this.cbPrivate.CheckedChanged += new System.EventHandler(this.cbPrivate_CheckedChanged);
             // 
@@ -265,7 +265,7 @@
             this.txtURL.ReadOnly = true;
             this.txtURL.Size = new System.Drawing.Size(255, 20);
             this.txtURL.TabIndex = 17;
-            this.txtURL.Text = "the URL will displayed here after starting the server";
+            this.txtURL.Text = "启动服务器后将在此显示访问地址";
             // 
             // label1
             // 
@@ -276,7 +276,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 14;
-            this.label1.Text = "URL :";
+            this.label1.Text = "访问地址：";
             // 
             // label6
             // 
@@ -288,7 +288,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Millisecond";
+            this.label6.Text = "毫秒";
             // 
             // numShotEvery
             // 
@@ -327,7 +327,7 @@
             this.lblMe.Name = "lblMe";
             this.lblMe.Size = new System.Drawing.Size(388, 23);
             this.lblMe.TabIndex = 32;
-            this.lblMe.Text = "© Eslam Hamouda 2014 - 2022 - screentask.me";
+            this.lblMe.Text = "© Eslam Hamouda 2014 - 2022 - screentask.me  |  屏幕共享工具";
             this.lblMe.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblMe.Click += new System.EventHandler(this.lblMe_Click);
             // 
@@ -351,7 +351,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 36;
-            this.label7.Text = "Screen :";
+            this.label7.Text = "屏幕：";
             // 
             // pictureBox1
             // 
@@ -371,7 +371,7 @@
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(65, 25);
             this.btnLaunch.TabIndex = 38;
-            this.btnLaunch.Text = "Launch";
+            this.btnLaunch.Text = "打开链接";
             this.btnLaunch.UseVisualStyleBackColor = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
@@ -385,13 +385,13 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 39;
-            this.label8.Text = "Speed :";
+            this.label8.Text = "刷新速度：";
             // 
             // appNotify
             // 
             this.appNotify.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.appNotify.Icon = ((System.Drawing.Icon)(resources.GetObject("appNotify.Icon")));
-            this.appNotify.Text = "Screen Task";
+            this.appNotify.Text = "屏幕共享";
             this.appNotify.Visible = true;
             this.appNotify.Click += new System.EventHandler(this.appNotify_Click);
             // 
@@ -404,7 +404,7 @@
             this.cbAutoStart.Name = "cbAutoStart";
             this.cbAutoStart.Size = new System.Drawing.Size(107, 17);
             this.cbAutoStart.TabIndex = 40;
-            this.cbAutoStart.Text = "Auto Start Server";
+            this.cbAutoStart.Text = "开机自动启动";
             this.cbAutoStart.UseVisualStyleBackColor = false;
             // 
             // cbMiniStart
@@ -416,7 +416,7 @@
             this.cbMiniStart.Name = "cbMiniStart";
             this.cbMiniStart.Size = new System.Drawing.Size(97, 17);
             this.cbMiniStart.TabIndex = 41;
-            this.cbMiniStart.Text = "Start Minimized";
+            this.cbMiniStart.Text = "最小化启动";
             this.cbMiniStart.UseVisualStyleBackColor = false;
             // 
             // qualitySlider
@@ -442,7 +442,7 @@
             this.lblQuality.Name = "lblQuality";
             this.lblQuality.Size = new System.Drawing.Size(45, 13);
             this.lblQuality.TabIndex = 43;
-            this.lblQuality.Text = "Quality :";
+            this.lblQuality.Text = "画质：";
             // 
             // groupBox1
             // 
@@ -461,7 +461,7 @@
             this.groupBox1.Size = new System.Drawing.Size(385, 115);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Display Options";
+            this.groupBox1.Text = "显示设置";
             // 
             // groupBox2
             // 
@@ -477,7 +477,7 @@
             this.groupBox2.Size = new System.Drawing.Size(385, 82);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Privacy Options";
+            this.groupBox2.Text = "隐私设置";
             // 
             // groupBox3
             // 
@@ -512,7 +512,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Screen Task";
+            this.Text = "屏幕共享";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);
