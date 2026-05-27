@@ -107,6 +107,56 @@
             }
         }
 
+        /* Fullscreen mode - image covers entire viewport regardless of aspect ratio */
+        #Viewer:fullscreen,
+        #Viewer:-webkit-full-screen,
+        #Viewer:-moz-full-screen,
+        #Viewer:-ms-fullscreen {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            width: 100vw !important;
+            height: 100vh !important;
+            overflow: hidden;
+        }
+
+        #Viewer:fullscreen img#imgPrev,
+        #Viewer:-webkit-full-screen img#imgPrev,
+        #Viewer:-moz-full-screen img#imgPrev,
+        #Viewer:-ms-fullscreen img#imgPrev {
+            max-width: none !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover !important;
+        }
+
+        /* Hide controls in fullscreen, show on hover */
+        #Viewer:fullscreen .well,
+        #Viewer:-webkit-full-screen .well,
+        #Viewer:-moz-full-screen .well,
+        #Viewer:-ms-fullscreen .well {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: rgba(0,0,0,0.6) !important;
+            border: none !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            padding: 8px !important;
+        }
+
+        #Viewer:fullscreen:hover .well,
+        #Viewer:-webkit-full-screen:hover .well,
+        #Viewer:-moz-full-screen:hover .well,
+        #Viewer:-ms-fullscreen:hover .well {
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
